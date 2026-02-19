@@ -39,4 +39,5 @@ test('vasu',async({page}) => {
     await expect(page.locator('#above-the-fold')).toContainText('#1 Playwright Tutorial Full Course 2025 | Playwright Testing Tutorial');
     await expect(page.getByRole('button', { name: 'Subscribe to Testers Talk.' })).toBeVisible();
     await expect(page.locator('#above-the-fold')).toMatchAriaSnapshot(`- text: /#1 Playwright Tutorial Full Course \\d+ \\| Playwright Testing Tutorial/`);
-});
+}); 
+
