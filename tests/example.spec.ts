@@ -16,3 +16,27 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
+
+
+  //await page.waitForTimeout(3000);
+//   const fromElements = page.locator('div').filter({ hasText: /^From$/ });
+  // await page.locator('div').filter({ hasText: /^From$/ }).nth(1).click();
+  //await page.getByRole('combobox', { name: 'From' }).highlight();
+
+
+
+test('finding bus in redbus',async({page}) => {
+  await page.goto("https://www.redbus.in");
+  await page.getByRole('combobox', { name: 'From' });
+
+  await page.getByRole('combobox', { name: 'From' }).fill('Mumbai');
+  await page.waitForTimeout(3000);
+  await page.getByRole('heading', { name: 'Mumbai' }).first().click();
+  await page.getByRole('combobox', { name: 'To' }).click();
+  await page.getByRole('combobox', { name: 'To' }).fill('Chennai');
+  await page.getByRole('heading', { name: 'Chennai', exact: true }).click();
+  await page.getByRole('combobox', { name: 'Select Date of Journey.' }).click();
+  await page.getByRole('button', { name: 'Friday, February 20,' }).click();
+  await page.getByRole('button', { name: 'Search buses' }).click();
+  await expect(page.getByText('buses found').nth(1)).toBeVisible();
+});
