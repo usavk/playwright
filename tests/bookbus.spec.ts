@@ -6,9 +6,7 @@ test('Find bus from mumbai to chennai', async({page}) => {
     await page.getByRole('combobox', { name: 'From' }).fill('mumbai');
     await page.getByRole('combobox', { name: 'From' }).press('Enter');
     await page.getByRole('heading', { name: 'Mumbai', exact: true }).click();
-    await page.getByRole('combobox', { name: 'To' }).click();
     await page.getByRole('combobox', { name: 'To' }).fill('chennai');
-    await page.getByRole('combobox', { name: 'To' }).press('Enter');
     await page.getByRole('heading', { name: 'Chennai', exact: true }).click();
     await page.getByRole('combobox', { name: 'Select Date of Journey.' }).click();
     await page.getByRole('button', { name: 'Saturday, February 28,' }).click();
